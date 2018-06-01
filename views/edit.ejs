@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ./partials/head.ejs %>
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<link href="../stylesheets/style.css" rel="stylesheet" type="text/html">
+
+<title>Furriends</title>
+</head>
+
+<body class="container">
+
+  <header>
+    <% include ./partials/header.ejs %>
+  </header>
+
+  <div>
+    <h1 id="secondHeader">Edit Pet</h1>
+  </div>
+
+    <div class="containerOne">
+    <form action="/collections/<%=pet._id %>?_method=PUT" method="POST">
+      <div class="row">
+        <div class="c25">
+          <label for="petName">Pet Name</label>
+        </div>
+        <div class="c75">
+          <input required type="text" id="name" name="pet[petName]" value="<% pet.petName %>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="c25">
+          <label for="breed">Breed</label>
+        </div>
+        <div class="c75">
+          <input required type="text" id="breed" name="pet[breed]" value="<%= pet.breed %>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="c25">
+          <label for="age">age</label>
+        </div>
+        <div class="c75">
+          <input required type="text" id="age" name="pet[age]" value="<%= pet.age %>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="c25">
+          <label for="sex">Sex</label>
+        </div>
+        <div class="c75">
+          <input required type="text" id="sex" name="pet[sex]" value="<%= pet.sex %>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="c25">
+          <label for="imageurl">Photo</label>
+        </div>
+        <div class="c75">
+          <input required type="text" id="imageurl" name="pet[imageurl]" value="<%= pet.imageurl %>">
+        </div>
+      </div>
+      <div class="row">
+        <input class="btn btn-primary btn-large" type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+
+  <footer>
+    <% include ./partials/footer.ejs %>
+  </footer>

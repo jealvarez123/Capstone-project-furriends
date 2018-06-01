@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<link href="../stylesheets/style.css" rel="stylesheet" type="text/css">
+
+<title>Furriends</title>
+
+<% include ./partials/head.ejs %>
+</head>
+<body class="container">
+
+  <header>
+      <% include ./partials/header.ejs %>
+  </header>
+
+<main>
+  <!-- albums! -->
+<div id='pets'>
+<% pets.forEach(function(pet) { %>
+  <!-- one pet -->
+  <div class="row pet">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-body">
+        <!-- begin pet internal row -->
+          <div class='row'>
+            <div class="col-md-3 col-xs-12 thumbnail pet-art">
+              <img src= "<%= pet.imageurl%>" width="1100" height="1100">
+            </div>
+            <div class="col-md-9 col-xs-12">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <h4 class='inline-header'>Name:</h4>
+                  <span class='pet-name'><%= pet.petName %></span>
+                </li>
+                <li class="list-group-item">
+                  <h4 class='inline-header'>breed:</h4>
+                  <span class='artist-name'><%= pet.breed %></span>
+                </li>
+                <li class="list-group-item">
+                  <h4 class='inline-header'>Age:</h4>
+                  <span class='pet age'><%= pet.age %></span>
+                </li>
+                <li class="list-group-item">
+                  <h4 class='inline-header'>Sex:</h4>
+                  <span class='album-releaseDate'><%= pet.sex %></span>
+                </li>
+                <li class="list-group-item">
+                  <p>
+                    <a class="btn btn-primary btn-large"href="collections/<%=pet._id %>/edit">EDIT</a>
+                  </p>
+                  
+                <li class='list-group-item'>
+                <form id='delete' action='/collections/<%= pet._id %>?_method=DELETE' method='POST' >
+                  <button class='btn btn-danger'>DELETE</button>
+                </form>
+              </li>
+
+              </ul>
+            </div>
+          </div>
+           <!-- end of pet internal row -->
+          <div class='panel-footer'>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- end one pet -->
+<% }); %>
+</div>
+</main>
+
+<footer>
+    <% include ./partials/footer.ejs %>
+</footer>
+
+</body>
+</html>

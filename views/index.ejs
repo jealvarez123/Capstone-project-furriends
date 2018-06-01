@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+
+  <% include ./partials/head.ejs %>
+
+<link href="../stylesheets/style.css" rel="stylesheet" type="text/css">
+
+<title>Furriends</title>
+
+</head>
+
+<body class="container">
+
+  <header>
+    <% include ./partials/header.ejs %>
+  </header>
+
+
+  <main>
+    <div>
+      <p>
+
+        Doggo ipsum blop boof borking doggo clouds porgo ruff, long woofer stop it fren borkf vvv, very taste wow yapper adorable doggo heck. Borking doggo snoot doing me a frighten extremely cuuuuuute noodle horse, adorable doggo maximum borkdrive pupperino. H*ck smol woofer boof pats, stop it fren pats adorable doggo. Pupper borkdrive shooberino you are doin me a concern he made many woofs much ruin diet tungg, very jealous pupper puggorino the neighborhood pupper borkf ruff. Doge borking doggo long water shoob waggy wags mlem, heckin good boys and girls snoot porgo doge doggo, you are doing me a frighten heckin angery woofer stop it fren. Doggorino borkdrive wow very biscit porgo, boof you are doin me a concern. borkdrive wow very biscit. Porgo you are doing me a frighten heckin good boys and girls heck, most angery pupper I have ever seen pupper h*ck pupperino, h*ck floofs.
+
+
+
+      </p>
+
+    </div>
+    <div>
+      <div class="container-fluid bg-3 text-center">
+  <h3> &hearts; Some of the dogs up for adoption &hearts; </h3><br>
+  <div class="row">
+    <a href="/collections">
+    <div class="col-sm-3">
+      <p>Fennec</p>
+
+      <img src="https://www.shelterluv.com/sites/default/files/animal_pics/464/2016/10/30/08/20161030085248.png" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+  </a>
+    <a href="/collections">
+    <div class="col-sm-3">
+      <p>Mickey</p>
+      <img src="https://www.shelterluv.com/sites/default/files/animal_pics/464/2016/11/13/12/20161113122614.png" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    </a>
+
+  <a href="/collections">
+    <div class="col-sm-3">
+      <p>Rufus</p>
+      <img src="https://www.shelterluv.com/sites/default/files/animal_pics/464/2017/04/11/22/20170411220129_0.png" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    </a>
+
+    <a href="/collections">
+      <div class="col-sm-3">
+        <p>Papaya</p>
+        <img src="https://www.shelterluv.com/sites/default/files/animal_pics/464/2018/03/19/21/20180319212928.png" class="img-responsive" style="width:100%" alt="Image">
+
+    </div>
+  </a>
+  </div>
+</div><br>
+    </div>
+
+    <div class="jumbotron">
+
+      <h2>Add a pet for adoption</h2>
+
+
+    </div>
+    <div class='carousel'>
+
+    </div>
+
+      <div class="containerOne">
+        <form method="POST" action="/collections">
+          <div class="row">
+            <div class="c25">
+              <label for="petName">Name</label>
+            </div>
+            <div class="c75">
+              <input required type="text" id="petName" name="petName" placeholder="...">
+            </div>
+          </div>
+          <div class="row">
+            <div class="c25">
+              <label for="breed">Breed</label>
+            </div>
+            <div class="c75">
+              <input required type="text" id="breed" name="breed" placeholder="...">
+            </div>
+          </div>
+          <div class="row">
+            <div class="c25">
+              <label for="age">Age</label>
+            </div>
+            <div class="c75">
+              <input required type="text" id="age" name="age" placeholder="...">
+            </div>
+          </div>
+          <div class="row">
+            <div class="c25">
+              <label for="sex">Sex</label>
+            </div>
+            <div class="c75">
+              <input required type="text" id="sex" name="sex" placeholder="...">
+            </div>
+          </div>
+          <div class="row">
+            <div class="c25">
+              <label for="imageurl"> Picture of your pet</label>
+            </div>
+            <div class="c75">
+              <input required type="text" id="imageurl" name="imageurl" placeholder="...">
+            </div>
+          </div>
+          <div class="row">
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+      </div>
+  </main>
+
+  <footer>
+    <% include ./partials/footer.ejs %>
+  </footer>
+
+</body>
+
+</html>
