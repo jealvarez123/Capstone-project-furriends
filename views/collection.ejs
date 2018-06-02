@@ -70,6 +70,55 @@
   </div>
    <!-- end one pet -->
 <% }); %>
+
+<div class="containerOne">
+  <form method="POST" action="/collections">
+    <div class="row">
+      <div class="c25">
+        <label for="petName">Name</label>
+      </div>
+      <div class="c75">
+        <input required type="text" id="petName" name="petName" placeholder="...">
+      </div>
+    </div>
+    <div class="row">
+      <div class="c25">
+        <label for="breed">Breed</label>
+      </div>
+      <div class="c75">
+        <input required type="text" id="breed" name="breed" placeholder="...">
+      </div>
+    </div>
+    <div class="row">
+      <div class="c25">
+        <label for="age">Age</label>
+      </div>
+      <div class="c75">
+        <input required type="text" id="age" name="age" placeholder="...">
+      </div>
+    </div>
+    <div class="row">
+      <div class="c25">
+        <label for="sex">Sex</label>
+      </div>
+      <div class="c75">
+        <input required type="text" id="sex" name="sex" placeholder="...">
+      </div>
+    </div>
+    <div class="row">
+      <div class="c25">
+        <label for="imageurl"> Picture of your pet</label>
+      </div>
+      <div class="c75">
+        <input required type="text" id="imageurl" name="imageurl" placeholder="...">
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>
+
 </div>
 </main>
 

@@ -55,6 +55,17 @@ app.get('/collections', function (req, res) {
   });
 });
 
+app.get('/profile', function (req, res) {
+
+  db.Pet.find({}, function(err, pets){
+    if (err) {
+      console.log("index error: " + err);
+      res.sendStatus(500);
+    }
+    res.render('collection',{pets:pets});
+  });
+});
+
 ///////////
 //create//
 /////////
@@ -197,6 +208,43 @@ app.get('/profile', (req, res) => {
     }
   });
 });
+
+///////////
+//create//
+/////////
+
+// app.post("/user-landing-page", function(req,res){
+//   //get data from the form and add to the DB
+//   var petName   = req.body.petName;
+//   var breed     = req.body.breed;
+//   var age       = req.body.age;
+//   var sex       = req.body.sex;
+//   var imageurl  = req.body.imageurl;
+//
+//   var newPet    =
+//   {
+//     petName:petName,
+//     breed:breed,
+//     age:age,
+//     sex:sex,
+//     imageurl:imageurl
+//   }
+//   ///////////////////////////////////////////
+//   //Create a new pet and save it to the DB//
+//   /////////////////////////////////////////
+//   db.Pet.create(newPet, (err,newlyCreatedPet) =>{
+//     if(err){
+//       console.log(err);
+//     } else {
+//       //redirect back to collections page
+//       res.redirect('/user-landing-page');
+//     }
+//   });
+// });
+
+////////////////////
+//Log the user out/
+//////////////////
 
 app.get('/logout', (req, res) => {
   // remove the session user id
