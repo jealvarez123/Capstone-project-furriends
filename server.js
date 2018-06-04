@@ -176,7 +176,8 @@ app.get('/login', function (req, res) {
 
 app.post('/sessions', function (req, res) {
   // call authenticate function to check if password user entered is correct
-  User.authenticate(req.body.email, req.body.password, function (err, loggedInUser) {
+  console.log('post sessions');
+  db.User.authenticate(req.body.email, req.body.password, function (err, loggedInUser) {
     if (err){
       console.log('authentication error: ', err);
       res.status(500).send();
@@ -198,7 +199,7 @@ app.post('/sessions', function (req, res) {
 app.get('/profile', (req, res) => {
   console.log('session user id: ', req.session.userId);
   // find the user currently logged in
-  User.findOne({_id: req.session.userId}, (err, currentUser) => {
+  db.User.findOne({_id: req.session.userId}, (err, currentUser) => {
     if (err){
       console.log('database error: ', err);
       res.redirect('/login');

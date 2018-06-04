@@ -35,7 +35,8 @@ UserSchema.statics.createSecure = function (email, username, password, callback)
 UserSchema.statics.authenticate = (email, password, callback) => {
   // find user by email entered at log in
   // remember `this` is the User model when we are inside a static method
-  this.findOne({email: email}, (err, foundUser) => {
+  User.findOne({email: email}, (err, foundUser) => {
+    console.log('found it!');
     console.log(foundUser);
 
     // throw error if can't find user
