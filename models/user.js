@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
   Schema = mongoose.Schema,
   bcrypt = require('bcrypt');
+  jquery = require("express-jquery");
 
 const UserSchema = new Schema({
     email:    {type: String, require: true},
@@ -31,7 +32,7 @@ UserSchema.statics.createSecure = function (email, username, password, callback)
 
 
 // authenticate user (when user logs in)
-UserSchema.statics.authenticate = (email, username, password, callback) => {
+UserSchema.statics.authenticate = (email, password, callback) => {
   // find user by email entered at log in
   // remember `this` is the User model when we are inside a static method
   this.findOne({email: email}, (err, foundUser) => {

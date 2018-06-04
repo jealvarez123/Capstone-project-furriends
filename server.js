@@ -11,12 +11,13 @@ const express          = require('express');
       bcrypt           = require('bcrypt');
       methodOverride   = require('method-override')
       User             = require('./models/user');
+      jquery           = require("express-jquery");
 
 const saltRounds = 10;
 
 // middleware
 app.use(express.static('public'));
-
+app.use(require('express-jquery')('/jquery.js'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(session({
@@ -55,16 +56,16 @@ app.get('/collections', function (req, res) {
   });
 });
 
-app.get('/profile', function (req, res) {
-
-  db.Pet.find({}, function(err, pets){
-    if (err) {
-      console.log("index error: " + err);
-      res.sendStatus(500);
-    }
-    res.render('collection',{pets:pets});
-  });
-});
+// app.get('/profile', function (req, res) {
+//
+//   db.Pet.find({}, function(err, pets){
+//     if (err) {
+//       console.log("index error: " + err);
+//       res.sendStatus(500);
+//     }
+//     res.render('collection',{pets:pets});
+//   });
+// });
 
 ///////////
 //create//
