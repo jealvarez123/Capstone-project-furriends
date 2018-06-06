@@ -14,6 +14,7 @@ UserSchema.statics.createSecure = function (email, username, password, callback)
   // store it in variable `UserModel` because `this` changes context in nested callbacks
 
   var UserModel = this;
+  console.log('UserModel');
 
   // hash password user enters at sign up
   bcrypt.genSalt((err, salt) => {
@@ -28,6 +29,7 @@ UserSchema.statics.createSecure = function (email, username, password, callback)
       }, callback);
     });
   });
+  console.log('Salt');
 };
 
 
@@ -55,7 +57,7 @@ UserSchema.statics.authenticate = (email, password, callback) => {
 // compare password user enters with hashed password (`passwordDigest`)
 UserSchema.methods.checkPassword = (password) => {
   // run hashing algorithm (with salt) on password user enters in order to compare with `passwordDigest`
-  return bcrypt.compareSync(password, this.passwordDigest);
+  return bcrypt.compareSync(password, foundUser.passwordDigest);
 };
 
 const User = mongoose.model('User', UserSchema);

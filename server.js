@@ -140,7 +140,6 @@ app.delete('/collections/:id', (req,res) => {
   });
 });
 
-
 /////////////
 // Signup //
 ///////////
@@ -173,7 +172,6 @@ app.get('/login', function (req, res) {
 // authenticate the user and set the session//
 /////////////////////////////////////////////
 
-
 app.post('/sessions', function (req, res) {
   // call authenticate function to check if password user entered is correct
   console.log('post sessions');
@@ -189,12 +187,9 @@ app.post('/sessions', function (req, res) {
   });
 });
 
-
-
 //////////////////////
 //Show user profile//
 ////////////////////
-
 
 app.get('/profile', (req, res) => {
   console.log('session user id: ', req.session.userId);
@@ -254,9 +249,6 @@ app.get('/logout', (req, res) => {
   // redirect to login
   res.redirect('/login');
 });
-
-
-
 
 app.get('*', (req, res) => {
   res.render('404', {

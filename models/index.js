@@ -6,7 +6,5 @@ if (process.env.NODE_ENV == "production") {
 } else {
 mongoose.connect('mongodb://localhost/furriends');
 }
-
 module.exports.Pet = require("./pets.js");
-
 module.exports.User = require("./user.js");
