@@ -11,7 +11,7 @@ const express          = require('express');
       bcrypt           = require('bcrypt');
       methodOverride   = require('method-override')
       User             = require('./models/user');
-      jquery           = require("express-jquery");
+      jquery           = require('express-jquery');
 
 const saltRounds = 10;
 
@@ -39,14 +39,27 @@ app.use(methodOverride("_method"));
 
 // use res.render to load the ejs view file\\\
 
-//index page
+///////////////
+//index page//
+/////////////
+
 app.get('/', function(req, res) {
-  res.render('index');
+  db.Pet.find({}, function(err, pets){
+    if (err) {
+      console.log("index error: " + err);
+      res.sendStatus(500);
+    }
+    res.render('index', {pets:pets});
+  });
 });
 
 
-app.get('/collections', function (req, res) {
 
+/////////////////////
+//collections page//
+///////////////////
+
+app.get('/collections', function (req, res) {
   db.Pet.find({}, function(err, pets){
     if (err) {
       console.log("index error: " + err);
@@ -90,6 +103,7 @@ app.post("/collections", function(req,res){
   ///////////////////////////////////////////
   //Create a new pet and save it to the DB//
   /////////////////////////////////////////
+
   db.Pet.create(newPet, (err,newlyCreatedPet) =>{
     if(err){
       console.log(err);
@@ -103,6 +117,7 @@ app.post("/collections", function(req,res){
 ////////////////
 // edit pets //
 //////////////
+
 app.get('/collections/:id/edit', (req,res) => {
   db.Pet.findById(req.params.id, (err,foundPet) => {
     if(err) {
@@ -115,6 +130,7 @@ app.get('/collections/:id/edit', (req,res) => {
 //////////////////
 // update pets //
 ////////////////
+
 app.put('/collections/:id', (req,res) => {
   db.Pet.findByIdAndUpdate(req.params.id,req.body.pet, (err, updatedPet) => {
     if(err){
@@ -257,4 +273,4 @@ app.get('*', (req, res) => {
 
 app.listen(process.env.PORT || 5000, () => {
   console.log('listening on port' + port)
-})
+});

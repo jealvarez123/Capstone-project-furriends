@@ -5,11 +5,17 @@ h2 {
 
 body {
   text-align: center;
-  background-color: #74C08E
+  background-color: #74C08E;
+  padding-top:50px;
 }
 
 a {
   color: black;
+  text-decoration: none;
+}
+
+.bigButton:hover {
+  text-decoration: none;
 }
 
 .jumbotron {
