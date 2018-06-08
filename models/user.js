@@ -46,7 +46,7 @@ UserSchema.statics.authenticate = (email, password, callback) => {
       console.log('No user with email ' + email);
       callback("Error: no user found", null);  // better error structures are available, but a string is good enough for now
     // if we found a user, check if password is correct
-    } else if (foundUser.checkPassword(password)) {
+  } else if (foundUser.checkPassword(password,foundUser)) {
       callback(null, foundUser.passwordDigest);
     } else {
       callback("Error: incorrect password", null);
@@ -55,10 +55,12 @@ UserSchema.statics.authenticate = (email, password, callback) => {
 };
 
 // compare password user enters with hashed password (`passwordDigest`)
-UserSchema.methods.checkPassword = (password) => {
+UserSchema.methods.checkPassword = (password, foundUser) => {
+  console.log(this)
   // run hashing algorithm (with salt) on password user enters in order to compare with `passwordDigest`
-  return bcrypt.compareSync(password, User.passwordDigest);
+  return bcrypt.compareSync(password, foundUser.passwordDigest);
 };
+
 
 const User = mongoose.model('User', UserSchema);
 

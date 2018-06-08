@@ -198,7 +198,8 @@ app.post('/sessions', function (req, res) {
     } else {
       console.log('setting sesstion user id ', loggedInUser._id);
       req.session.userId = loggedInUser._id;
-      res.redirect('/profile');
+      console.log(req.session.userId);
+      res.render('user-landing-page');
     }
   });
 });
@@ -217,7 +218,8 @@ app.get('/profile', (req, res) => {
     } else {
       // render profile template with user's data
       console.log('loading profile of logged in user');
-      res.render('user-landing-page', {user: currentUser});
+      // res.render('user-landing-page');
+      res.render('user-landing-page');
     }
   });
 });

@@ -5,7 +5,7 @@
 
 <% include ./partials/head.ejs %>
 </head>
-<body class="container">
+<body>
 
   <header>
       <% include ./partials/header.ejs %>
@@ -22,7 +22,7 @@
         <!-- begin pet internal row -->
           <div class='row'>
             <div class="col-md-3 col-xs-12 thumbnail pet-art">
-              <img src= "<%= pet.imageurl%>" width="1100" height="1100">
+              <img src= "<%= pet.imageurl%>" class='img1' width="1100" height="1100">
             </div>
             <div class="col-md-9 col-xs-12">
               <ul class="list-group">

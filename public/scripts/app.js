@@ -25,7 +25,7 @@ $(document).ready(function() {
     // send POST request to /login with the form data
     $.post('/sessions', loginData, function(response) {
       console.log('This is working');
-      console.log(response);
+      console.log(loginData);
     });
   });
 });
